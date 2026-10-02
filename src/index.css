@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #eae1db;
+  background: #17130f;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --surface: #17130f;
+  --surface-dim: #17130f;
+  --surface-bright: #3d3834;
+  --surface-container-lowest: #110d0a;
+  --surface-container-low: #1f1b17;
+  --surface-container: #231f1b;
+  --surface-container-high: #2e2925;
+  --surface-container-highest: #393430;
+  --on-surface: #eae1db;
+  --on-surface-variant: #d4c4b7;
+  --outline: #9c8e82;
+  --outline-variant: #50453b;
+  --primary: #f2be8c;
+  --on-primary: #482904;
+  --primary-container: #d4a373;
+  --on-primary-container: #5b3912;
+  --secondary: #bccbb1;
+  --on-secondary: #273422;
+  --secondary-container: #3d4b37;
+  --on-secondary-container: #aabaa0;
+  --tertiary: #b0ccdb;
+  --on-tertiary: #18343f;
+  --tertiary-container: #95b1bf;
+  --on-tertiary-container: #294450;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Almarai', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+html {
+  background: var(--surface);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--surface);
+  color: var(--on-surface);
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid var(--primary);
+  outline-offset: 4px;
+}
+
+::selection {
+  color: var(--on-primary);
+  background: var(--primary);
+}
+
+/* Scholarly Tactile palette mapping; structure and motion remain unchanged. */
+[class~="bg-black"] { background-color: var(--surface) !important; }
+[class~="bg-[#101010]"] { background-color: var(--surface-container) !important; }
+[class~="bg-[#212121]"] { background-color: var(--surface-container-high) !important; }
+[class~="bg-primary"] { background-color: var(--primary) !important; }
+[class~="text-black"] { color: var(--on-primary) !important; }
+[class~="text-primary"] { color: var(--primary) !important; }
+[class~="text-gray-400"] { color: #b0b3b8 !important; }
+[class~="text-gray-500"] { color: #9c8e82 !important; }
+[class*="text-[#E1E0CC]"] { color: var(--on-surface) !important; }
+[class*="border-primary"] { border-color: var(--outline-variant) !important; }
+#about [class*="text-[#DEDBC8]"] { color: var(--on-surface-variant) !important; }
+#about [class*="text-primary"], #features [class*="text-primary"], #pricing [class*="text-primary"], #voices [class*="text-primary"], #inquiries [class*="text-primary"] { color: var(--primary) !important; }
+nav[class~="bg-black"] { background-color: var(--surface-container-lowest) !important; }
+nav [class*="text-[#E1E0CC]"] { color: var(--on-surface) !important; }
+span[class~="bg-black"] { background-color: var(--surface-container-lowest) !important; }
+#top [class*="text-[#E1E0CC]"] { color: var(--on-surface) !important; }
+#features .group.relative [class*="text-[#E1E0CC]"] { color: var(--on-surface) !important; }
+
+.noise-overlay,
+.bg-noise {
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+.hero-video,
+.card-video {
+  filter: saturate(.72) contrast(1.02) brightness(.72);
+}
+
+.hero-grid {
+  background-image: linear-gradient(rgba(234,225,219,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(234,225,219,.08) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: linear-gradient(to bottom, transparent 15%, black 52%, transparent 100%);
+}
+
+.display-tight {
+  letter-spacing: -0.055em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
