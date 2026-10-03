@@ -1,3 +1,3 @@
 export default {
-  logoUrl: '/logo.png',
+  logoUrl: '/jammed-develops-transparent.png',
 }
